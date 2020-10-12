@@ -16,6 +16,15 @@ export const fetchShow = () => {
     
 }
 
+useEffect(() => {
+    fetchShow()
+    .then((res) => {
+      setShow(res.data)
+      setSeasons(formatSeasons(res.data._embedded.episodes))
+    })
+    .catch((err) => {});
+  });
+
 // useEffect(() => {
 //     const fetchShow = () => {
 //       axios
